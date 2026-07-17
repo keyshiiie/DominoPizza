@@ -1,3 +1,4 @@
+import chain.*;
 import decorator.*;
 import pizza.*;
 
@@ -58,11 +59,8 @@ public class Main {
         // Готовим пиццу
         Pizza pizza = builder.build();
 
-        System.out.println("\n " + pizza.cook());
-
         // Создаем заказ
         PizzaOrder order = new BasePizzaOrder(pizza);
-
 
         // Шаг 5: Дополнительные услуги
         System.out.println("Шаг 5. Дополнительные услуги (0 - завершить):");
@@ -93,10 +91,25 @@ public class Main {
             }
         }
 
-        // Показываем результат
-        System.out.println("\n" + order.getDescription());
-        System.out.println("\nИтоговая стоимость: " + order.getPrice() + " руб.");
-        System.out.println("\nЗаказ передан на кухню! Приятного аппетита!");
+        OrderRequest request = new OrderRequest(pizza);
+        OrderHandler ingredientHandler = new IngredientAvailabilityHandler();
+        OrderHandler kitchenHandler = new KitchenCapacityHandler();
+        OrderHandler deliveryHandler = new DeliveryAvailabilityHandler();
+
+        ingredientHandler.setNext(kitchenHandler);
+        kitchenHandler.setNext(deliveryHandler);
+
+        System.out.println("\nОбработка заказа...");
+        boolean isOrderAccepted = ingredientHandler.handle(request);
+
+        System.out.println("\n " + pizza.cook());
+        if (isOrderAccepted) {
+            System.out.println("Заказ принят! Отправляем на кухню.");
+            System.out.println("\n" + order.getDescription());
+            System.out.println("\nЗаказ передан на кухню! Приятного аппетита!");
+        } else {
+            System.out.println("Заказ отклонен. Пожалуйста, повторите заказ, выбрав другие ингредиенты.");
+        }
 
         scanner.close();
     }

@@ -2,30 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f10ff0c3-74a1-4c26-bb35-5b605554530a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DominoPizza.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/decorator/BasePizzaOrder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/decorator/ExpressCookingDecorator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/decorator/ExtraCheeseBorderDecorator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/decorator/ExtraService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/decorator/PizzaDecorator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/decorator/PizzaOrder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pizza/Dough.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pizza/Pizza.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pizza/PizzaBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pizza/Sauce.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pizza/Size.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pizza/Topping.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/strategy/CookingStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/strategy/ThickDoughCookingStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/strategy/ThinDoughCookingStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/strategy/VeganCookingStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/chain/BaseOrderHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/chain/DeliveryAvailabilityHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/chain/IngredientAvailabilityHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/chain/KitchenCapacityHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/chain/OrderHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/chain/OrderRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
