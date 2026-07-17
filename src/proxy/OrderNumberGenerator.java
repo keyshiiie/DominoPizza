@@ -17,8 +17,7 @@ public class OrderNumberGenerator {
                 return Integer.parseInt(line);
             }
         } catch (IOException | NumberFormatException e) {
-            // Если файла нет или ошибка, начинаем с 1000
-            System.out.println("📁 Создан новый файл счетчика заказов");
+            System.out.println("Создан новый файл счетчика заказов");
         }
         return 1000;
     }
@@ -27,7 +26,7 @@ public class OrderNumberGenerator {
         try (PrintWriter writer = new PrintWriter(new FileWriter(COUNTER_FILE))) {
             writer.println(counter);
         } catch (IOException e) {
-            System.err.println("⚠️ Не удалось сохранить счетчик: " + e.getMessage());
+            System.err.println("Не удалось сохранить счетчик: " + e.getMessage());
         }
     }
 
