@@ -1,6 +1,9 @@
 import chain.*;
 import decorator.*;
 import pizza.*;
+import proxy.FileLoggingProxy;
+import proxy.FileOrderLogger;
+import proxy.OrderNumberGenerator;
 
 import java.util.Scanner;
 
@@ -104,6 +107,25 @@ public class Main {
 
         System.out.println("\n " + pizza.cook());
         if (isOrderAccepted) {
+            System.out.println("\n=========================================");
+            System.out.println("📝 Логирование заказа на кухню...");
+            System.out.println("=========================================");
+
+            // Генерируем данные для заказа
+            String orderNumber = OrderNumberGenerator.generateOrderNumber();
+            String receivedTime = OrderNumberGenerator.getCurrentTime();
+            int cookingTime = pizza.getCookingStrategy().getCookingTime();
+            String readyTime = OrderNumberGenerator.getReadyTime(cookingTime);
+
+            // Создаем реальный логгер
+            FileOrderLogger realLogger = new FileOrderLogger();
+
+            // Создаем прокси с записью в файл "kitchen_orders.txt"
+            FileLoggingProxy fileLogger = new FileLoggingProxy(realLogger, "kitchen_orders.txt");
+
+            // Логируем заказ через прокси
+            fileLogger.logOrder(pizza, orderNumber, receivedTime, readyTime);
+
             System.out.println("Заказ принят! Отправляем на кухню.");
             System.out.println("\n" + order.getDescription());
             System.out.println("\nЗаказ передан на кухню! Приятного аппетита!");

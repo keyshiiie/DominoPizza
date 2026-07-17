@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f10ff0c3-74a1-4c26-bb35-5b605554530a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/chain/BaseOrderHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/chain/DeliveryAvailabilityHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/chain/IngredientAvailabilityHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/chain/KitchenCapacityHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/chain/OrderHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/chain/OrderRequest.java" afterDir="false" />
+    <list default="true" id="f10ff0c3-74a1-4c26-bb35-5b605554530a" name="Changes" comment="добавление цепочки обработки заказа">
+      <change afterPath="$PROJECT_DIR$/kitchen_orders.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/proxy/FileLoggingProxy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/proxy/FileOrderLogger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/proxy/OrderLogger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/proxy/OrderNumberGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
@@ -67,6 +66,14 @@
       <option name="presentableId" value="Default" />
       <updated>1784290212911</updated>
     </task>
+    <task id="LOCAL-00001" summary="добавление цепочки обработки заказа">
+      <created>1784301270026</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1784301270026</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -79,5 +86,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="добавление цепочки обработки заказа" />
+    <option name="LAST_COMMIT_MESSAGE" value="добавление цепочки обработки заказа" />
   </component>
 </project>
