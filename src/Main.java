@@ -1,3 +1,7 @@
+import adapter.BankAdapter;
+import adapter.ExternalBankAPI;
+import adapter.InternalPaymentProcessor;
+import adapter.PaymentProcessor;
 import chain.*;
 import decorator.*;
 import pizza.*;
@@ -126,9 +130,38 @@ public class Main {
             // Логируем заказ через прокси
             fileLogger.logOrder(pizza, orderNumber, receivedTime, readyTime);
 
-            System.out.println("Заказ принят! Отправляем на кухню.");
-            System.out.println("\n" + order.getDescription());
-            System.out.println("\nЗаказ передан на кухню! Приятного аппетита!");
+            System.out.println("\n=========================================");
+            System.out.println("Выберите способ оплаты:");
+            System.out.println("1 - Внутренняя система (ДоМиНо Pay)");
+            System.out.println("2 - Внешний банк (через адаптер)");
+            System.out.print("Ваш выбор: ");
+
+            int paymentChoice = Integer.parseInt(scanner.nextLine());
+
+            PaymentProcessor paymentProcessor;
+
+            if (paymentChoice == 2) {
+                // Используем адаптер для внешнего банка
+                ExternalBankAPI bank = new ExternalBankAPI();
+                String cardNumber = "1234-5678-9012-3456";
+                paymentProcessor = new BankAdapter(bank, cardNumber);
+                System.out.println("\nИспользуем адаптер для внешнего банка...");
+            } else {
+                // Используем внутреннюю систему
+                paymentProcessor = new InternalPaymentProcessor();
+                System.out.println("\nИспользуем внутреннюю систему оплаты...");
+            }
+
+            // Выполняем оплату
+            boolean paymentSuccess = paymentProcessor.pay(order.getPrice(), "RUB");
+
+            if (paymentSuccess) {
+                System.out.println("ОПЛАТА ПРОШЛА УСПЕШНО!");
+                System.out.println("\n" + order.getDescription());
+                System.out.println("\nЗаказ передан на кухню! Приятного аппетита!");
+            } else {
+                System.out.println("ОШИБКА ОПЛАТЫ!");
+            }
         } else {
             System.out.println("Заказ отклонен. Пожалуйста, повторите заказ, выбрав другие ингредиенты.");
         }
